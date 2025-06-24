@@ -10,11 +10,19 @@
         android:scaleType="centerCrop"
         android:src="@drawable/day1" />
 
+    <!-- Gradient Overlay (fixed to ImageView) -->
+    <ImageView
+        android:id="@+id/gradient_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/overlay_gradient" />
+
     <!-- Top-left Logo -->
     <ImageView
         android:id="@+id/logo_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_margin="10dp"
         android:scaleType="fitStart"
         android:src="@drawable/logo"
