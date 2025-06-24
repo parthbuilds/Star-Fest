@@ -1,19 +1,59 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.Starfest.AppWidget.Container"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:theme="@style/Theme.Starfest.AppWidgetContainer">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/appwidget_text"
-        style="@style/Widget.Starfest.AppWidget.InnerView"
-        android:layout_width="wrap_content"
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/bg_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/day1" />
+
+    <!-- Top-left Logo -->
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/logo"
+        android:layout_gravity="top|start" />
+
+    <!-- Bottom Text Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
-</RelativeLayout>
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@android:color/transparent"
+        android:layout_gravity="bottom|start">
+
+        <!-- Countdown Title -->
+        <TextView
+            android:id="@+id/countdown_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StarFest"
+            android:textColor="#FFFFFF"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:shadowColor="#99000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
+
+        <!-- Days Left -->
+        <TextView
+            android:id="@+id/countdown_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 days left"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:shadowColor="#99000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
+    </LinearLayout>
+</FrameLayout>
