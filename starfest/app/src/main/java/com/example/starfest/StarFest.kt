@@ -17,7 +17,7 @@ class StarFest : AppWidgetProvider() {
     )
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
-        val cutoffDateStr = context.getString(R.string.countdown_end_date) // e.g., "2025-07-07"
+        val cutoffDateStr = context.getString(R.string.countdown_end_date)
 
         for (widgetId in appWidgetIds) {
             val views = RemoteViews(context.packageName, R.layout.star_fest)
@@ -34,15 +34,32 @@ class StarFest : AppWidgetProvider() {
             val fontId = R.font.audiowide
             val white = Color.WHITE
 
+            // Celebration Heading
+            views.setImageViewBitmap(
+                R.id.celebration_heading,
+                renderTextBitmap(context, "Celebration Countdown", 20f, fontId, white, true)
+            )
+
+            // Set logo
+            views.setImageViewResource(R.id.logo_image, R.drawable.logo)
+
             if (endDate != null) {
                 val millisDiff = endDate.time - now.timeInMillis
 
-                val labelBitmap = renderTextBitmap(context, "StarFest", 38f, fontId, white, shadow = true)
-                views.setImageViewBitmap(R.id.countdown_label, labelBitmap)
+                // Main title
+                val titleBitmap = renderTextBitmap(context, "StarFest", 28f, fontId, white, true)
+                views.setImageViewBitmap(R.id.countdown_label, titleBitmap)
 
                 if (millisDiff <= 0) {
-                    views.setImageViewBitmap(R.id.time_remaining_text, renderTextBitmap(context, "00 : 00 : 00", 48f, fontId, white, shadow = true))
-                    views.setImageViewBitmap(R.id.countdown_text, renderTextBitmap(context, "Let's Go!", 14f, fontId, white, shadow = true))
+                    // Post-event mode
+                    views.setImageViewBitmap(
+                        R.id.time_remaining_text,
+                        renderTextBitmap(context, "00 : 00 : 00", 48f, fontId, white, true)
+                    )
+                    views.setImageViewBitmap(
+                        R.id.countdown_text,
+                        renderTextBitmap(context, "See you next year!", 14f, fontId, white, true)
+                    )
                     views.setImageViewResource(R.id.bg_image, R.drawable.day1)
                 } else {
                     val daysLeft = (millisDiff / (1000 * 60 * 60 * 24)).toInt()
@@ -52,16 +69,21 @@ class StarFest : AppWidgetProvider() {
                     val timerText = String.format("%02d : %02d : %02d", daysLeft, hoursLeft, minutesLeft)
                     val daysText = "$daysLeft days left"
 
-                    views.setImageViewBitmap(R.id.time_remaining_text, renderTextBitmap(context, timerText, 48f, fontId, white, shadow = true))
-                    views.setImageViewBitmap(R.id.countdown_text, renderTextBitmap(context, daysText, 14f, fontId, white, shadow = true))
+                    views.setImageViewBitmap(
+                        R.id.time_remaining_text,
+                        renderTextBitmap(context, timerText, 50f, fontId, white, true)
+                    )
+                    views.setImageViewBitmap(
+                        R.id.countdown_text,
+                        renderTextBitmap(context, daysText, 20f, fontId, white, true)
+                    )
 
                     val imageIndex = (10 - daysLeft).coerceIn(0, 9)
                     views.setImageViewResource(R.id.bg_image, backgroundImages[imageIndex])
                 }
-
-                views.setImageViewResource(R.id.logo_image, R.drawable.logo)
-                appWidgetManager.updateAppWidget(widgetId, views)
             }
+
+            appWidgetManager.updateAppWidget(widgetId, views)
         }
     }
 
@@ -78,7 +100,9 @@ class StarFest : AppWidgetProvider() {
             this.textSize = spToPx(context, spSize)
             this.typeface = ResourcesCompat.getFont(context, fontResId)
             this.textAlign = Paint.Align.LEFT
-            if (shadow) setShadowLayer(6f, 2f, 2f, Color.BLACK)
+            if (shadow) {
+                setShadowLayer(10f, 4f, 4f, Color.parseColor("#99000000"))
+            }
         }
 
         val bounds = Rect()
