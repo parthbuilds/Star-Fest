@@ -11,79 +11,63 @@
         android:scaleType="centerCrop"
         android:src="@drawable/day1" />
 
-    <!-- Gradient Overlay -->
-    <ImageView
-        android:id="@+id/gradient_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/overlay_gradient" />
-
-    <!-- Center Countdown Timer Text -->
-    <TextView
-        android:id="@+id/time_remaining_text"
+    <!-- Center Countdown Timer -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/glass_background"
-        android:text="00 : 00 : 00"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:shadowColor="#99000000"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="1"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:elevation="6dp"
-        android:fontFamily="monospace" />
+        android:gravity="center">
+
+
+    <!-- Timer Image -->
+        <ImageView
+            android:id="@+id/time_remaining_text"
+            android:layout_width="393dp"
+            android:layout_height="50dp"
+            android:contentDescription="Countdown Timer" />
+    </LinearLayout>
 
     <!-- Top-left Logo -->
-    <ImageView
-        android:id="@+id/logo_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
-        android:scaleType="fitStart"
-        android:src="@drawable/logo"
-        android:layout_gravity="top|start" />
 
     <!-- Bottom Text Area -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="412dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="12dp"
+        android:layout_gravity="bottom|start"
         android:background="@android:color/transparent"
-        android:layout_gravity="bottom|start">
+        android:orientation="vertical"
+        android:padding="12dp">
 
-        <!-- Countdown Title -->
-        <TextView
+        <!-- Title Image -->
+        <ImageView
             android:id="@+id/countdown_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="StarFest"
-            android:textColor="#FFFFFF"
-            android:textSize="38sp"
-            android:textStyle="bold"
-            android:shadowColor="#99000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:fontFamily="sans-serif-medium" />
+            android:contentDescription="Countdown Label" />
 
-        <!-- Days Left -->
-        <TextView
+        <!-- Days Left Image -->
+
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="10dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/logo" />
+
+        <ImageView
             android:id="@+id/countdown_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 days left"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:shadowColor="#99000000"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:fontFamily="sans-serif-light" />
+            android:layout_width="197dp"
+            android:layout_height="35dp"
+            android:contentDescription="Countdown Days Left" />
     </LinearLayout>
 </FrameLayout>
