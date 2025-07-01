@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Star Fest</string>
+    <string name="countdown_end_date">2025-07-07</string>
+    <string name="color">#e4dad1</string>
+</resources>
