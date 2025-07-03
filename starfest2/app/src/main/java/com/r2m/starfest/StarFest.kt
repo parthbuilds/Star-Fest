@@ -1,4 +1,4 @@
-package com.example.starfest
+package com.r2m.starfest
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -169,38 +169,8 @@ class StarFest : AppWidgetProvider() {
     }
 }
 
-object AgendaRepository {
-    val agendaByDay: Map<Int, Agenda> = mapOf(
-        1 to Agenda(1, "Grand Hyatt", listOf(
-            AgendaItem("Arrive at airport, move by coach. Check-in by 11 am at Grand Hyatt", "09:00 am - 11:00 am"),
-            AgendaItem("Lunch", "12:00 pm - 02:00 pm"),
-            AgendaItem("Sessions Start with KK", "03:00 pm - 05:00 pm"),
-            AgendaItem("Hi-Tea", "05:00 pm - 05:30 pm"),
-            AgendaItem("Sessions Continue", "05:30 pm - 07:00 pm"),
-            AgendaItem("Motivational Speaker", "07:00 pm - 08:00 pm"),
-            AgendaItem("Rewards & Recognition", "08:00 pm - 09:30 pm"),
-            AgendaItem("Dinner & Gala Night", "09:30 pm - 11:59 pm")
-        )),
-        2 to Agenda(2, "Main Stage Area", listOf(
-            AgendaItem("Breakfast", "07:00 am - 10:00 am"),
-            AgendaItem("Team Engagement Activities", "10:00 am - 02:00 pm"),
-            AgendaItem("Lunch @ The Chulha", "02:00 pm - 03:00 pm"),
-            AgendaItem("Team Photo", "03:00 pm - 03:30 pm"),
-            AgendaItem("Free Time", "03:30 pm - 07:00 pm"),
-            AgendaItem("Drum Jam", "07:00 pm - 08:00 pm"),
-            AgendaItem("Sand Art", "08:00 pm - 08:15 pm"),
-            AgendaItem("Mentalist", "08:15 pm - 09:00 pm"),
-            AgendaItem("Dinner & Gala Night", "09:00 pm - 11:59 pm")
-        )),
-        3 to Agenda(3, "The Chulha", listOf(
-            AgendaItem("Breakfast", "07:00 am - 10:00 am"),
-            AgendaItem("Free Time", "10:00 am - 12:00 pm"),
-            AgendaItem("Lunch @ The Chulha", "12:00 pm - 01:00 pm"),
-            AgendaItem("Check Out", "01:00 pm - 01:30 pm")
-        ))
-    )
-}
 
-data class Agenda(val dayNumber: Int, val venue: String, val items: List<AgendaItem>)
-data class AgendaItem(val title: String, val time: String)
+
+data class Agenda(val dayNumber: Int, val venue: String, val items: List<WidgetAgendaItem>)
+data class WidgetAgendaItem(val title: String, val time: String)
 data class ParsedAgendaItem(val start: Int, val end: Int, val title: String, val time: String)

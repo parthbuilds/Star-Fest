@@ -1,4 +1,4 @@
-package com.example.starfest.ui.theme
+package com.r2m.starfest.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

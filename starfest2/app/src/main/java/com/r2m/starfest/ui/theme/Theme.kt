@@ -1,6 +1,5 @@
-package com.example.starfest.ui.theme
+package com.r2m.starfest.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
